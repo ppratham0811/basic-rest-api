@@ -43,6 +43,16 @@ const mapTeacher = async (req, res, next) => {
 
 const deleteTeacher = async (req, res, next) => {
     const { teacherId } = req.params;
+    const deleteTeacher = await Teacher.findById(teacherId).populate(
+        "classId",
+        "name"
+    );
+    const className = deleteTeacher.classId.name;
+    await Class.findOneAndUpdate(
+        { name: className },
+        { $pull: { teachers: teacherId } },
+        { new: true }
+    );
     await Teacher.findByIdAndDelete(teacherId);
     res.redirect("/admin/teachers");
 };
@@ -84,8 +94,18 @@ const mapStudent = async (req, res, next) => {
 
 const deleteStudent = async (req, res, next) => {
     const { studentId } = req.params;
+    const deleteStudent = await Student.findById(studentId).populate(
+        "classId",
+        "name"
+    );
+    const className = deleteStudent.classId.name;
+    await Class.findOneAndUpdate(
+        { name: className },
+        { $pull: { students: studentId } },
+        { new: true }
+    );
     await Student.findByIdAndDelete(studentId);
-    res.send(`Student ${studentId} deleted successfully`);
+    res.redirect("/admin/students");
 };
 
 const getAllClasses = async (req, res, next) => {
@@ -120,6 +140,5 @@ module.exports = {
     deleteTeacher,
     getAllClasses,
     addClass,
-    updateClass,
     deleteClass,
 };
