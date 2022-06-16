@@ -2,6 +2,7 @@ const Admin = require("../database/admin");
 const Teacher = require("../database/teacher");
 const Student = require("../database/student");
 const Class = require("../database/class");
+const AppError = require("../utils/AppError");
 
 const greetAdmin = (req, res, next) => {
     res.send(`Welcome, ${req.session.user.username}`);
@@ -18,7 +19,7 @@ const addTeacher = async (req, res, next) => {
         username,
         password,
     });
-    newTeacher.save();
+    await newTeacher.save();
     res.redirect("/admin/teachers");
 };
 
@@ -30,6 +31,11 @@ const mapTeacher = async (req, res, next) => {
         { new: true, runValidators: true }
     );
     const foundClass = await Class.findById(classId);
+    for (let t of foundClass.teachers) {
+        if (t.equals(teacherId)) {
+            return res.redirect("/admin/classes");
+        }
+    }
     foundClass.teachers.push(teacherId);
     await foundClass.save();
     res.redirect("/admin/classes");
@@ -47,14 +53,15 @@ const getStudents = async (req, res, next) => {
 };
 
 const addStudent = async (req, res, next) => {
-    const { name, username, password } = req.body;
+    const { name, username, password, roll } = req.body;
     const newStudent = new Student({
         name,
         username,
         password,
+        roll,
     });
-    newStudent.save();
-    res.send("New student added");
+    await newStudent.save();
+    res.redirect("/admin/students");
 };
 
 const mapStudent = async (req, res, next) => {
@@ -65,6 +72,11 @@ const mapStudent = async (req, res, next) => {
         { new: true, runValidators: true }
     );
     const foundClass = await Class.findById(classId);
+    for (let s of foundClass.students) {
+        if (s.equals(studentId)) {
+            return res.redirect("/admin/classes");
+        }
+    }
     foundClass.students.push(studentId);
     await foundClass.save();
     res.redirect("/admin/classes");
@@ -86,7 +98,7 @@ const addClass = async (req, res, next) => {
     const addNewClass = new Class({
         name,
     });
-    addNewClass.save();
+    await addNewClass.save();
     res.redirect("/admin/classes");
 };
 
