@@ -16,10 +16,38 @@ const studentSchema = new Schema({
         type: String,
         required: true,
     },
-    subjectScore: [
+    roll: {
+        type: Number,
+        required: true,
+    },
+    scoreCard: [
         {
-            subject: String,
-            score: Number,
+            studentName: {
+                type: String,
+            },
+            subjectName: {
+                type: String,
+            },
+            examDate: {
+                type: Date,
+            },
+            scoreDate: {
+                type: Date,
+            },
+            score: {
+                type: Number,
+            },
+            comments: {
+                type: String,
+            },
+            studentId: {
+                type: Schema.Types.ObjectId,
+                ref: "Student",
+            },
+            teacherId: {
+                type: Schema.Types.ObjectId,
+                ref: "Teacher",
+            },
         },
     ],
     classId: {
