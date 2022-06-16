@@ -61,10 +61,33 @@ const studentLoggedIn = (req, res, next) => {
     }
 };
 
+const authTeacher = async (req, res, next) => {
+    const { teacherId, studentId } = req.params;
+    const foundTeacher = await Teacher.findById(teacherId).populate(
+        "classId",
+        "name"
+    );
+    const foundStudent = await Student.findById(studentId).populate(
+        "classId",
+        "name"
+    );
+    if (foundTeacher.classId.name === foundStudent.classId.name) {
+        next();
+    } else {
+        next(
+            new AppError(
+                "Unauthorized class access or either the teacher or the student are not mapped to the same classId",
+                401
+            )
+        );
+    }
+};
+
 module.exports = {
     isLoggedIn,
     needsLogin,
     adminLoggedIn,
     teacherLoggedIn,
     studentLoggedIn,
+    authTeacher,
 };
