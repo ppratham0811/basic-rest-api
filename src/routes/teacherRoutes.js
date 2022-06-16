@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const teacherController = require("../controllers/teacherController");
-const { isLoggedIn, teacherLoggedIn } = require("../middlewares");
+const { isLoggedIn, teacherLoggedIn, authTeacher } = require("../middlewares");
 const catchAsync = require("../utils/catchAsync");
 
 router.get("/", isLoggedIn, teacherLoggedIn, teacherController.greetTeacher);
@@ -14,10 +14,18 @@ router
         catchAsync(teacherController.getAllStudents)
     );
 
-router.post(
-    "/students/:studentId",
+router.get(
+    "/students/ranks",
     isLoggedIn,
     teacherLoggedIn,
+    catchAsync(teacherController.getRanks)
+);
+
+router.put(
+    "/:teacherId/students/:studentId",
+    isLoggedIn,
+    teacherLoggedIn,
+    authTeacher,
     teacherController.createScoreCard
 );
 
