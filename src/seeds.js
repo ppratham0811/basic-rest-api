@@ -12,11 +12,9 @@ mongoose
     });
 
 const addNewAdmin = async function () {
-    // mainAdmin    password: "admin123",
-    // admin2   password: "admin2123"
     const newAdmin = new Admin({
-        username: "admin2",
-        password: "admin2123",
+        username: "mainAdmin",
+        password: "admin123",
     });
     await newAdmin.save();
 };
