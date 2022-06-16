@@ -102,8 +102,6 @@ const addClass = async (req, res, next) => {
     res.redirect("/admin/classes");
 };
 
-const updateClass = async (req, res, next) => {};
-
 const deleteClass = async (req, res, next) => {
     const { classId } = req.params;
     await Class.findByIdAndDelete(classId);
