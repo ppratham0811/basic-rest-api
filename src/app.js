@@ -40,10 +40,10 @@ const teacherRoutes = require("./routes/teacherRoutes");
 const studentRoutes = require("./routes/studentRoutes");
 
 // Logout route
-app.get('/logout',(req,res) => {
+app.get("/logout", (req, res) => {
     req.session.destroy();
-    res.redirect('/auth/login');
-})
+    res.redirect("/auth/login");
+});
 app.use("/auth/login", loginRoutes);
 app.use("/admin", adminRoutes);
 app.use("/teacher", teacherRoutes);
