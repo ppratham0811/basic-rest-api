@@ -20,16 +20,16 @@
 > -   _Teachers_
 > -   _Students_
 > -   _Classes_
-
+>
 > The admin has the highest privilege of editing the database. He can add teachers, delete teachers, add students, delete students, add classes, delete classes, map a certain student to a certain class or map a certain teacher to a certain class.
 > The teacher has the following privileges:
 >
 > -   He/She can get a list of all students (in alphabetical order) of his/her class.
 > -   Create a score card for each student
 > -   Get a list of students based on their marks (in descending order)
-
+>
 > The Student can only view his/her marks once logged in.
-
+>
 > So there are three different roles, **Admin**, **Teacher** and **Student**, role is set in session once logged in.
 
 ---
@@ -37,10 +37,12 @@
 ### **_Schema Definitions_**
 
 > **Admin Schema**: It has two fields namely username(String) and password(String), since these are the only parameters required to login. We can extend the schema to store other admin details as well.
-
+>
 > **Teacher Schema**: It has three fields, username(String), password(String) and classId(ref: 'Class'). Since each teacher will be mapped to a certain class by the admin.
-
-> **Student Schema**: It 5 fields namely name(String), username(String), password(String), roll(Number), subjectScore(Array of objects), classId(ref: 'Class'). Similarly each student will be mapped to a certain class.
+>
+> **Student Schema**: It 5 fields namely name(String), username(String), password(String), roll(Number), scoreCard(Array of objects), classId(ref: 'Class'). Similarly each student will be mapped to a certain class.
+> 
+> Each object/document of scoreCard field has many attributes within it: studentName, subjectName, examDate, scoreDate, score, comments, studentId, teacherId, classId
 
 _Note: Common schema fields are placed in the common.js file, location: src/database/common.js_
 
