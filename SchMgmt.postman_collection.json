@@ -1,0 +1,521 @@
+{
+	"info": {
+		"_postman_id": "3803bd25-271d-4c50-97ab-cf24e7f9cf31",
+		"name": "SchMgmt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin Routes",
+			"item": [
+				{
+					"name": "Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "mainAdmin",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin adding Teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "mainTeacher",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "teacher123",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "secondTeacher",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "teacher123",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin adding Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Sunil",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "sunil123",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "sunil123",
+									"type": "default"
+								},
+								{
+									"key": "roll",
+									"value": "11",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Ramesh",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "ramesh123",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "ramesh123",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "roll",
+									"value": "4",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin deleting Teacher",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Admin deleting Student",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Admin adding Class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "firstClass",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/class",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin deleting Class",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Admin mapping Student to Class",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/student/62ab455b90dc08778deaabcc/class/62ab458390dc08778deaabd0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"student",
+								"62ab455b90dc08778deaabcc",
+								"class",
+								"62ab458390dc08778deaabd0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin mapping Teacher to Class",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/teacher/62ab452090dc08778deaabc3/class/62ab458390dc08778deaabd0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"teacher",
+								"62ab452090dc08778deaabc3",
+								"class",
+								"62ab458390dc08778deaabd0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin displaying teachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin displaying Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin displaying Classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"classes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher Routes",
+			"item": [
+				{
+					"name": "Teacher Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "mainTeacher",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "teacher123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher displaying all students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/teacher/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teacher",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student ScoreCard addition by Teacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "subjectName",
+									"value": "Physics",
+									"type": "default"
+								},
+								{
+									"key": "examDate",
+									"value": "2022-06-10",
+									"type": "default"
+								},
+								{
+									"key": "scoreDate",
+									"value": "2022-06-14",
+									"type": "default"
+								},
+								{
+									"key": "score",
+									"value": "90",
+									"type": "default"
+								},
+								{
+									"key": "comments",
+									"value": "Keep it up",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/teacher/62ab452090dc08778deaabc3/students/62ab455b90dc08778deaabcc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teacher",
+								"62ab452090dc08778deaabc3",
+								"students",
+								"62ab455b90dc08778deaabcc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getting percentage wise list of students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/teacher/students/ranks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teacher",
+								"students",
+								"ranks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student Routes",
+			"item": [
+				{
+					"name": "Student Login/HomePage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "sunil123",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "sunil123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logout Path",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
