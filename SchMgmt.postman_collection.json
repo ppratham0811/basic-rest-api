@@ -18,12 +18,12 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "mainAdmin",
+									"value": "String",
 									"type": "default"
 								},
 								{
 									"key": "password",
-									"value": "admin123",
+									"value": "String",
 									"type": "default"
 								}
 							]
@@ -53,12 +53,12 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "mainTeacher",
+									"value": "String",
 									"type": "default"
 								},
 								{
 									"key": "password",
-									"value": "teacher123",
+									"value": "String",
 									"type": "default"
 								},
 								{
@@ -100,22 +100,22 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Sunil",
+									"value": "String",
 									"type": "default"
 								},
 								{
 									"key": "username",
-									"value": "sunil123",
+									"value": "String",
 									"type": "default"
 								},
 								{
 									"key": "password",
-									"value": "sunil123",
+									"value": "String",
 									"type": "default"
 								},
 								{
 									"key": "roll",
-									"value": "11",
+									"value": "Number",
 									"type": "default"
 								},
 								{
@@ -162,16 +162,54 @@
 				{
 					"name": "Admin deleting Teacher",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/teachers/:teacherId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"teachers",
+								":teacherId"
+							],
+							"variable": [
+								{
+									"key": "teacherId",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Admin deleting Student",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/students/:studentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"students",
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -185,7 +223,7 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "firstClass",
+									"value": "String",
 									"type": "default"
 								}
 							]
@@ -208,8 +246,27 @@
 				{
 					"name": "Admin deleting Class",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/classes/:classId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"classes",
+								":classId"
+							],
+							"variable": [
+								{
+									"key": "classId",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -223,7 +280,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/student/62ab455b90dc08778deaabcc/class/62ab458390dc08778deaabd0",
+							"raw": "http://localhost:3000/admin/student/:studentId/class/:classId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -232,9 +289,19 @@
 							"path": [
 								"admin",
 								"student",
-								"62ab455b90dc08778deaabcc",
+								":studentId",
 								"class",
-								"62ab458390dc08778deaabd0"
+								":classId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": ""
+								},
+								{
+									"key": "classId",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -246,7 +313,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/admin/teacher/62ab452090dc08778deaabc3/class/62ab458390dc08778deaabd0",
+							"raw": "http://localhost:3000/admin/teacher/:teacherId/class/:classId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -255,9 +322,19 @@
 							"path": [
 								"admin",
 								"teacher",
-								"62ab452090dc08778deaabc3",
+								":teacherId",
 								"class",
-								"62ab458390dc08778deaabd0"
+								":classId"
+							],
+							"variable": [
+								{
+									"key": "teacherId",
+									"value": ""
+								},
+								{
+									"key": "classId",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -338,12 +415,12 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "mainTeacher",
+									"value": "",
 									"type": "default"
 								},
 								{
 									"key": "password",
-									"value": "teacher123",
+									"value": "",
 									"type": "default"
 								}
 							]
@@ -393,33 +470,33 @@
 							"urlencoded": [
 								{
 									"key": "subjectName",
-									"value": "Physics",
+									"value": "String",
 									"type": "default"
 								},
 								{
 									"key": "examDate",
-									"value": "2022-06-10",
+									"value": "YYYY-MM-DD",
 									"type": "default"
 								},
 								{
 									"key": "scoreDate",
-									"value": "2022-06-14",
+									"value": "YYYY-MM-DD",
 									"type": "default"
 								},
 								{
 									"key": "score",
-									"value": "90",
+									"value": "Number",
 									"type": "default"
 								},
 								{
 									"key": "comments",
-									"value": "Keep it up",
+									"value": "String",
 									"type": "default"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/teacher/62ab452090dc08778deaabc3/students/62ab455b90dc08778deaabcc",
+							"raw": "http://localhost:3000/teacher/:teacherId/students/:studentId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -427,9 +504,19 @@
 							"port": "3000",
 							"path": [
 								"teacher",
-								"62ab452090dc08778deaabc3",
+								":teacherId",
 								"students",
-								"62ab455b90dc08778deaabcc"
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "teacherId",
+									"value": ""
+								},
+								{
+									"key": "studentId",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -471,12 +558,12 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "sunil123",
+									"value": "String",
 									"type": "default"
 								},
 								{
 									"key": "password",
-									"value": "sunil123",
+									"value": "String",
 									"type": "default"
 								}
 							]
@@ -516,6 +603,12 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "studentId",
+			"value": ":studentId"
 		}
 	]
 }
