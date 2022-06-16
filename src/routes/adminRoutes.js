@@ -35,7 +35,7 @@ router
         catchAsync(adminController.deleteTeacher)
     )
     .delete(
-        "/class/:classId",
+        "/classes/:classId",
         isLoggedIn,
         adminLoggedIn,
         catchAsync(adminController.deleteClass)
