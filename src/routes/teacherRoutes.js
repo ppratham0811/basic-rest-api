@@ -4,27 +4,18 @@ const teacherController = require("../controllers/teacherController");
 const { isLoggedIn, teacherLoggedIn, authTeacher } = require("../middlewares");
 const catchAsync = require("../utils/catchAsync");
 
-router.get("/", isLoggedIn, teacherLoggedIn, teacherController.greetTeacher);
+router.use(isLoggedIn,teacherLoggedIn);
+// router.use(teacherLoggedIn);
+// common middleware for all routes
 
-router
-    .route("/students")
-    .get(
-        isLoggedIn,
-        teacherLoggedIn,
-        catchAsync(teacherController.getAllStudents)
-    );
+router.get("/", teacherController.greetTeacher);
 
-router.get(
-    "/students/ranks",
-    isLoggedIn,
-    teacherLoggedIn,
-    catchAsync(teacherController.getRanks)
-);
+router.route("/students").get(catchAsync(teacherController.getAllStudents));
+
+router.get("/students/ranks", catchAsync(teacherController.getRanks));
 
 router.put(
     "/:teacherId/students/:studentId",
-    isLoggedIn,
-    teacherLoggedIn,
     authTeacher,
     teacherController.createScoreCard
 );
